@@ -97,21 +97,36 @@ export function setLoginRoot() {
     });
   }
 
-  export function SwitchRoot() {
-    Navigation.setDefaultOptions(
-      smsDefaultOptions,
-    );
+  export function setHomeTabRoot() {
+    Navigation.setDefaultOptions({
+      ...smsDefaultOptions,
+      bottomTabs: {
+        fontSize: 14,
+        selectedFontSize: 20,
+        titleDisplayMode: 'alwaysShow',
+        backgroundColor: '#FAFAFA',
+        hideShadow: true,
+        animate: false,
+        fontFamily: 'Barlow-Regular',
+      },
+    });
+  
     Navigation.setRoot({
       root: {
-        stack: {
-          children: [
-            {
-              component: {
-                name: 'Login',
-              },
+        sideMenu: {
+          center: {
+            bottomTabs: {
+              children: HomeTabs,
             },
-          ],
+          },
+          left: {
+            component: {
+              name: 'Drawer',
+              id: 'Drawer',
+            },
+          },
         },
       },
     });
   }
+  

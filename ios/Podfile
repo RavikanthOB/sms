@@ -8,6 +8,10 @@ target 'sms' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
   target 'smsTests' do
     inherit! :complete
     # Pods for testing
